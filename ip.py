@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-url = 'https://github.com/HassanCoudsi/HealthCare350IP/blob/0c7420552b1bb1881cf1aad20ae95b096363f5d3/LifeExpectancyData.csv'
+url = 'https://github.com/HassanCoudsi/HealthCare350IP/blob/main/LifeExpectancyData.csv'
 df = pd.read_csv(url)
 
 df = pd.read_csv('LifeExpectancyData.csv')
