@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-url = 'https://github.com/HassanCoudsi/HealthCare350IP/blob/main/LifeExpectancyData.csv'
+url = './LifeExpectancyData.csv'
 df = pd.read_csv(url)
 
 section = st.sidebar.radio('Which section?', ('Overview', 'Correlation', 'Predict the Future', 'Maps'))
