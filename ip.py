@@ -353,7 +353,7 @@ elif section == 'Predict the Future':
             missing_developed_train = df_train_developed[column].isnull().sum()
 
             # Append the mean and missing values to the mean_values DataFrame
-            mean_values_train = mean_values_train.append({'Column': column, 'Mean_Developing': mean_developing_train, 'Missing_Developing': missing_developing_train, 'Mean_Developed': mean_developed_train, 'Missing_Developed': missing_developed_train}, ignore_index=True)
+            mean_values_train = pd.concat([mean_values_train, pd.DataFrame([{'Column': column, 'Mean_Developing': mean_developing_train, 'Missing_Developing': missing_developing_train, 'Mean_Developed': mean_developed_train, 'Missing_Developed': missing_developed_train}])], ignore_index=True)
 
     # Initialize an empty DataFrame to store the mean values
     mean_values_val = pd.DataFrame(columns=['Column', 'Mean_Developing', 'Missing_Developing', 'Mean_Developed', 'Missing_Developed'])
@@ -375,7 +375,7 @@ elif section == 'Predict the Future':
             missing_developed_val = df_val_developed[column].isnull().sum()
 
             # Append the mean and missing values to the mean_values DataFrame
-            mean_values_val = mean_values_val.append({'Column': column, 'Mean_Developing': mean_developing_val, 'Missing_Developing': missing_developing_val, 'Mean_Developed': mean_developed_val, 'Missing_Developed': missing_developed_val}, ignore_index=True)
+            mean_values_val = pd.concat([mean_values_val, pd.DataFrame([{'Column': column, 'Mean_Developing': mean_developing_val, 'Missing_Developing': missing_developing_val, 'Mean_Developed': mean_developed_val, 'Missing_Developed': missing_developed_val}])], ignore_index=True)
 
 
     # Loop through each column in df_train_developing
@@ -433,7 +433,7 @@ elif section == 'Predict the Future':
             missing_developed = df_train_developed[column].isnull().sum()
 
             # Append the column name and missing values count to the missing_values DataFrame
-            missing_values = missing_values.append({'Column': column, 'Missing_Developing': missing_developing, 'Missing_Developed': missing_developed}, ignore_index=True)
+            missing_values = pd.concat([missing_values, pd.DataFrame([{'Column': column, 'Missing_Developing': missing_developing, 'Missing_Developed': missing_developed}])], ignore_index=True)
 
 
     # Concatenate df_developing and df_developed DataFrames
@@ -514,7 +514,7 @@ elif section == 'Maps':
     long_life_expectancy = list(long_life_expectancy)
 
     # Read the GeoJSON file
-    geojson_file = 'https://github.com/HassanCoudsi/HealthCare350IP/blob/main/world-administrative-boundaries.geojson'
+    geojson_file = './world-administrative-boundaries.geojson'
     
     gdf = gpd.read_file(geojson_file)
     
