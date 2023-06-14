@@ -2,3 +2,4 @@ folium==0.12.1
 branca==0.3
 seaborn
 geopandas
+scikit-learn
