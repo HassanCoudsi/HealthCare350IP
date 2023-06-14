@@ -13,8 +13,6 @@ from sklearn.metrics import mean_squared_error
 url = 'https://github.com/HassanCoudsi/HealthCare350IP/blob/main/LifeExpectancyData.csv'
 df = pd.read_csv(url)
 
-df = pd.read_csv('LifeExpectancyData.csv')
-
 section = st.sidebar.radio('Which section?', ('Overview', 'Correlation', 'Predict the Future', 'Maps'))
 
 if section == 'Overview':
@@ -516,7 +514,8 @@ elif section == 'Maps':
     long_life_expectancy = list(long_life_expectancy)
 
     # Read the GeoJSON file
-    geojson_file = '/Users/hassancoudsi/Documents/AUB/MSBA/350HealthcareAnalytics/IndividualProject/world-administrative-boundaries.geojson'
+    geojson_file = 'https://github.com/HassanCoudsi/HealthCare350IP/blob/main/world-administrative-boundaries.geojson'
+    
     gdf = gpd.read_file(geojson_file)
     
     # Create a map using Folium
